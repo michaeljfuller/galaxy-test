@@ -1,0 +1,43 @@
+@use 'color';
+
+@mixin text {
+  /* TODO font-family: Inter; */
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: color.$grey-dark;
+}
+
+@mixin heading-1 {
+  @include text;
+  font-size: 48pt;
+  font-weight: bold;
+}
+
+@mixin heading-2 {
+  @include text;
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+@mixin sub-heading {
+  @include text;
+  font-size: 16pt;
+  font-weight: 600;
+}
+
+@mixin button-heading {
+  @include text;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+@mixin paragraph {
+  @include text;
+  font-size: 14pt;
+  line-height: 1.4;
+}
+
+@mixin small-paragraph {
+  @include text;
+  font-size: 12pt;
+}

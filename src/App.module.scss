@@ -1,3 +1,27 @@
+@use '/styles/typography';
+@use '/styles/button';
+
 .root {
+  h1 {
+    @include typography.heading-1;
+  }
+  h2 {
+    @include typography.heading-2;
+  }
+  h3 {
+    @include typography.sub-heading;
+  }
+  label {
+    @include typography.button-heading;
+  }
+  p {
+    @include typography.paragraph;
+  }
+  span, div {
+    @include typography.small-paragraph;
+  }
+  button {
+    @include button.primary;
+  }
 
 }

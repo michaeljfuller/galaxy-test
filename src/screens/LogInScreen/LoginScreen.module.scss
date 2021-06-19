@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.formContainer {
+  /* Size */
+  flex-grow: 1;
+  min-width: 500px;
+
+  /* Center content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}

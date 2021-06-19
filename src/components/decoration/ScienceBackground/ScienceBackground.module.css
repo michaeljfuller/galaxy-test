@@ -1,0 +1,20 @@
+.root {
+    position: relative;
+    min-height: 10px;
+}
+.root > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.underlay {
+    background: linear-gradient(180deg, #78BCFF 0%, #0073E6 100%);
+}
+
+.image {
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+}

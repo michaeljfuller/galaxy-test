@@ -20,7 +20,7 @@
   span, div {
     @include typography.small-paragraph;
   }
-  button {
+  button, input[type="submit"] {
     @include button.primary;
   }
 

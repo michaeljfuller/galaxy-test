@@ -1,0 +1,26 @@
+@use '/styles/color';
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 446px;
+    &::placeholder {
+      color: color.$grey-light;
+    }
+  }
+}
+
+
+.email {
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+.password {
+  margin-bottom: 32px;
+}
+
+.error {
+  color: color.$bad;
+}

@@ -1,5 +1,7 @@
 import React, {CSSProperties, FormHTMLAttributes, useState} from "react";
 import {Link} from "react-router-dom";
+import css from "./LogInScreenForm.module.scss";
+import {classNames} from "../../utils/component-utils";
 
 export interface LogInFormProps {
     onSubmit: (email: string, password: string) => void;
@@ -20,9 +22,13 @@ export function LogInForm(props: LogInFormProps) {
         if (!props.disabled) props.onSubmit(email, password);
     };
 
-    return <form className={props.className} style={props.style} onSubmit={handleSubmit}>
+    return <form
+        className={classNames(css.root, props.className)}
+        style={props.style}
+        onSubmit={handleSubmit}
+    >
 
-        <label>
+        <label className={css.email}>
             <span>Email</span>
             <input
                 type="email"
@@ -34,7 +40,7 @@ export function LogInForm(props: LogInFormProps) {
             />
         </label>
 
-        <label>
+        <label className={css.password}>
             <span>Password</span>
             <input
                 type="password"
@@ -46,7 +52,7 @@ export function LogInForm(props: LogInFormProps) {
             />
         </label>
 
-        {props.error ? <p>{props.error}</p> : null}
+        {props.error ? <p className={css.error}>{props.error}</p> : null}
 
         <input disabled={disabled} type="submit" value="Log In" />
 

@@ -1,4 +1,5 @@
-@use "../../../../styles/color";
+@use "styles/color";
+@use "styles/typography";
 
 @mixin root {
 
@@ -9,6 +10,7 @@
 }
 
 @mixin subtitle {
+  @include typography.small-paragraph;
   color: color.$grey;
 }
 

@@ -35,4 +35,9 @@
     @include input.label;
   }
 
+  hr {
+    border: 0 solid color.$grey-faint; /* TODO Check figma */
+    border-top-width: 1px;
+  }
+
 }

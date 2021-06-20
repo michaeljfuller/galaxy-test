@@ -1,4 +1,6 @@
 @use "./section";
+@use "/styles/button";
+@use "/styles/misc";
 
 .root {
     @include section.root;
@@ -11,5 +13,34 @@
     }
     .row {
         @include section.row;
+        label {
+            flex: 1;
+        }
+    }
+
+    .avatar {
+        div {
+            display: flex;
+            gap: 15px; /* TODO Check size in figma */
+        }
+        img {
+            @include misc.circle(); /* TODO Check size in figma */
+        }
+    }
+    .delete > div {
+        display: flex;
+        align-items: center;
+        span {
+            @include section.subtitle;
+            flex: 1;
+        }
+        button {
+            border: none;
+            background: none;
+        }
+    }
+
+    button {
+        @include button.ghost;
     }
 }

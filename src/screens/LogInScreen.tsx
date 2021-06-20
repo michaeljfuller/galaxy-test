@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {RouteChildrenProps} from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import css from "./LogInScreen/LogInScreen.module.scss";
-import ScienceBackground from "../components/decoration/ScienceBackground";
+import ScienceBackground, {defaultScienceBackgroundStyle} from "../components/decoration/ScienceBackground";
 import LogInForm, {LogInFormProps} from "./LogInScreen/LogInForm";
 
 export interface LogInScreenProps extends RouteChildrenProps {}
@@ -35,6 +35,6 @@ export function LogInScreen(props: LogInScreenProps) {
                 />
             </div>
         </div>
-        <ScienceBackground />
+        <ScienceBackground style={{ minWidth: defaultScienceBackgroundStyle.width }} />
     </div>;
 }

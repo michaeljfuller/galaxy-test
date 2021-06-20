@@ -8,10 +8,11 @@ export interface SideNavigatorProps extends RouteComponentProps {
     className?: string;
     style?: CSSProperties;
 }
-export interface SideNavigatorLink extends Omit<RouteProps, 'children'|'path'>{
+export interface SideNavigatorLink extends Omit<RouteProps, 'children'|'path'|'component'>{
     path: string; // Ensure string, to be used as a key and match LinkProps['to']
     title: string;
     replace?: LinkProps['replace'];
+    component: RouteProps['component'] | undefined | null; // Allow to be disabled
 }
 
 /**
@@ -23,8 +24,11 @@ export function RawSideNavigator(props: SideNavigatorProps) {
     return <div className={classNames(css.root, props.className)} style={props.style}>
 
         <nav className={css.side}>{
-            props.links.map(link => (
-                <Link key={link.path} to={props.match?.url + link.path}>
+            props.links.map(link => {
+                if (!link.component) {
+                    return <div key={link.path} className={css.link+" "+css.disabled}>{link.title}</div>;
+                }
+                return <Link key={link.path} to={props.match?.url + link.path}>
                     <div
                         className={classNames(
                             css.link,
@@ -34,7 +38,7 @@ export function RawSideNavigator(props: SideNavigatorProps) {
                         {link.title}
                     </div>
                 </Link>
-            ))
+            })
         }</nav>
 
         <div className={css.content}>
@@ -44,12 +48,14 @@ export function RawSideNavigator(props: SideNavigatorProps) {
                         title,
                         replace,
                         path,
+                        component,
                         ...routeProps
-                    }) => <Route
+                    }) => component ? <Route
                         key={path}
                         path={props.match?.path + path}
+                        component={component}
                         {...routeProps}
-                    />)
+                    /> : null)
                 }
                 <Route path="*">
                     <p>Section not found</p>

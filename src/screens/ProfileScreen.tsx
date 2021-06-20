@@ -2,6 +2,8 @@ import {RouteChildrenProps} from "react-router-dom";
 import NavBar from "../components/navigation/NavBar";
 import css from "./ProfileScreen/ProfileScreen.module.scss";
 import SideNavigator from "../navigation/SideNavigator";
+import GeneralProfileSection from "./ProfileScreen/sections/GeneralProfileSection";
+import ApiProfileSection from "./ProfileScreen/sections/ApiProfileSection";
 
 export interface ProfileScreenProps extends RouteChildrenProps {}
 
@@ -10,13 +12,13 @@ export function ProfileScreen(props: ProfileScreenProps) {
         <NavBar />
         <h1>ProfileScreen</h1>
         <SideNavigator links={[
-            {title: "General", path: '', exact: true, component: () => <h1>General</h1>},
-            {title: "Plan", path: '/plan', component: () => <h1>Plan</h1>},
-            {title: "API", path: '/api', component: () => <h1>API</h1>},
-            {title: "Security", path: '/security', component: () => <h1>Security</h1>},
-            {title: "Notifications", path: '/notifications', component: () => <h1>Notifications</h1>},
-            {title: "Billing History", path: '/billing-history', component: () => <h1>Billing History</h1>},
-            {title: "Legal", path: '/legal', component: () => <h1>Legal</h1>},
+            {title: "General", path: '', exact: true, component: GeneralProfileSection},
+            {title: "Plan", path: '/plan', component: null},
+            {title: "API", path: '/api', component: ApiProfileSection},
+            {title: "Security", path: '/security', component: null},
+            {title: "Notifications", path: '/notifications', component: null},
+            {title: "Billing History", path: '/billing-history', component: null},
+            {title: "Legal", path: '/legal', component: null},
         ]} />
     </div>;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch, Route, Redirect} from "react-router-dom";
 import css from './App.module.scss';
 
+import AuthenticatedRoute from "./navigation/AuthenticatedRoute";
 import {LogInScreen} from "./screens/LogInScreen";
 import {ProfileScreen} from "./screens/ProfileScreen";
 
@@ -11,7 +12,7 @@ function App() {
 
             <Redirect exact from="/" to="/profile" />
             <Route path="/login" component={LogInScreen} />
-            <Route path="/profile" component={ProfileScreen} />
+            <AuthenticatedRoute redirectTo="/login" path="/profile" component={ProfileScreen}/>
 
             <Route path="*">
                 <h1>404</h1>

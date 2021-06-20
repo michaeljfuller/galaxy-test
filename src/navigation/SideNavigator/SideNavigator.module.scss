@@ -1,0 +1,26 @@
+@use "/styles/color";
+@use "/styles/typography";
+
+.root {
+  display: flex;
+}
+
+.side {
+  margin-right: 50px; /* TODO Check figma */
+
+  .link {
+    @include typography.sub-heading;
+    width: 250px; /* TODO Check figma */
+    line-height: 50px;
+    border-radius: 30px;
+    padding-left: 30px;
+
+    &.active {
+      background-color: color.$primary-faded;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+}

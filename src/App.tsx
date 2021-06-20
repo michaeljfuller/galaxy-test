@@ -3,8 +3,8 @@ import {Switch, Route, Redirect} from "react-router-dom";
 import css from './App.module.scss';
 
 import AuthenticatedRoute from "./navigation/AuthenticatedRoute";
-import {LogInScreen} from "./screens/LogInScreen";
-import {ProfileScreen} from "./screens/ProfileScreen";
+import LogInScreen from "./screens/LogInScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
     return <div className={css.root}>

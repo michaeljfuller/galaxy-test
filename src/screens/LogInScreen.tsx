@@ -38,3 +38,4 @@ export function LogInScreen(props: LogInScreenProps) {
         <ScienceBackground style={{ minWidth: defaultScienceBackgroundStyle.width }} />
     </div>;
 }
+export default LogInScreen;

@@ -34,6 +34,7 @@
     & > * {
       @include typography.small-paragraph;
       color: color.$grey; /* TODO Check in figma */
+      user-select: none;
     }
   }
 

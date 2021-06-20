@@ -1,22 +1,39 @@
-import React, {CSSProperties, memo} from "react";
+import React, {CSSProperties, memo, useState} from "react";
 import {Link, withRouter, RouteComponentProps} from "react-router-dom";
 import css from "./NavBar/NavBar.module.scss";
 import {classNames} from "../../utils/component-utils";
 import InnerGridIcon from "../icons/InnerGridIcon";
 import useAuth from "../../hooks/useAuth";
+import {errorMessage} from "../../utils/error-utils";
 
 export interface NavBarProps extends RouteComponentProps {
     className?: string;
     style?: CSSProperties;
 }
 
+const links = Object.freeze([
+    {title: "Home", to: "/"},
+    {title: "Categories", to: "/categories"},
+    {title: "Feed", to: "/feed"},
+    {title: "Saved", to: "/saved"},
+]);
+
 export function RawNavBar(props: NavBarProps) {
     const auth = useAuth();
     const user = auth.currentUser;
+    const [signingOut, setSigningOut] = useState(false);
 
-    const handleLogOut = async () => {
-        await auth.signOut();
-    }
+    const handleLogOut = () => {
+        setSigningOut(true);
+        auth.signOut().then(
+            () => props.history.push("/"),
+            error => {
+                alert(errorMessage(error));
+                setSigningOut(false);
+            }
+        );
+    };
+    const disabled = signingOut;
 
     return <nav className={classNames(css.root)} style={props.style}>
 
@@ -24,17 +41,19 @@ export function RawNavBar(props: NavBarProps) {
         <p className={css.title}>Galactic</p>
 
         <div className={css.links}>
-            <Link to="/">Home</Link>
-            <Link to="/categories">Categories</Link>
-            <Link to="/feed">Feed</Link>
-            <Link to="/saved">Saved</Link>
+            {
+                links.map(link => {
+                    if (disabled) return <span key={link.to}>{link.title}</span>;
+                    return <Link key={link.to} to={link.to}>{link.title}</Link>;
+                })
+            }
             <span>•••</span>
         </div>
 
         <div className={css.actions}>
             <div className={css.notifications}>Bell</div>
             <img className={css.avatar} src={user?.avatar} alt="avatar" />
-            <button onClick={handleLogOut}>Log out</button>
+            <button onClick={handleLogOut} disabled={disabled}>Log out</button>
         </div>
 
     </nav>;

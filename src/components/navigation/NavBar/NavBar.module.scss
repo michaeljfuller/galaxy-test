@@ -1,0 +1,45 @@
+@use "/styles/color";
+@use "/styles/typography";
+@use "/styles/misc";
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid color.$grey-faint; /* TODO Check in figma */
+  padding: 20px 0; /* TODO Check in figma */
+  margin: 0 100px; /* TODO Check in figma */
+
+  .menu {
+    @include misc.circle();
+  }
+  .notifications {
+    @include misc.circle();
+  }
+  .avatar {
+    @include misc.circle();
+  }
+
+  .title {
+    @include typography.sub-heading;
+    margin: 0 50px 0 20px; /* TODO Check in figma */
+  }
+
+  .links {
+    display: flex;
+    gap: 30px; /* TODO Check in figma */
+    align-items: center;
+    flex: 1;
+
+    & > * {
+      @include typography.small-paragraph;
+      color: color.$grey; /* TODO Check in figma */
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 30px; /* TODO Check in figma */
+  }
+
+}

@@ -1,0 +1,15 @@
+@use "./section";
+
+.root {
+    @include section.root;
+
+    .title {
+        @include section.title;
+    }
+    .subtitle {
+        @include section.subtitle;
+    }
+    .row {
+        @include section.row;
+    }
+}

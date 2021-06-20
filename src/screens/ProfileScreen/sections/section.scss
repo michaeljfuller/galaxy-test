@@ -1,0 +1,20 @@
+@use "../../../../styles/color";
+
+@mixin root {
+
+}
+
+@mixin title {
+
+}
+
+@mixin subtitle {
+  color: color.$grey;
+}
+
+@mixin row {
+  display: flex;
+  flex-direction: row;
+  gap: 30px; /* TODO Check figma */
+  margin-bottom: 30px; /* TODO Check figma */
+}

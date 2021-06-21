@@ -14,12 +14,14 @@
     line-height: 50px;
     border-radius: 30px;
     padding-left: 30px;
+    color: color.$grey-light; /* TODO Check figma */
 
     &.disabled {
-      color: color.$grey-light;
+      color: color.$grey-faint;
       user-select: none;
     }
     &.active {
+      color: color.$primary;
       background-color: color.$primary-faded;
     }
   }

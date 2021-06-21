@@ -4,7 +4,6 @@
 @mixin primary {
   @include typography.button-heading;
 
-  height: 56px;
   padding: 21px 24px;
 
   border-radius: 8px;
@@ -23,7 +22,6 @@
 @mixin ghost {
   @include typography.button-heading;
 
-  height: 48px;
   padding: 17px 24px;
 
   border-radius: 8px;

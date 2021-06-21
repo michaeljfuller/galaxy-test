@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import css from "./ApiProfileSection.module.scss";
 import useAuth from "../../../hooks/useAuth";
 
@@ -6,6 +6,7 @@ export interface ApiProfileSectionProps {}
 
 export function ApiProfileSection(props: ApiProfileSectionProps) {
     const keyInput = useRef<HTMLInputElement>(null);
+    const [copied, setCopied] = useState(false);
     const currentUser = useAuth().currentUser as User;
 
     const token = currentUser.token;
@@ -14,12 +15,18 @@ export function ApiProfileSection(props: ApiProfileSectionProps) {
         if (keyInput.current) {
             keyInput.current.select();
             document.execCommand("copy");
-
-            // Can clear selection & focus if wanted
-            // document.getSelection()?.empty();
-            // keyInput.current.blur();
+            document.getSelection()?.empty();
+            keyInput.current.blur();
+            setCopied(true);
         }
     }
+
+    useEffect(() => {
+        if (copied) {
+            const timeoutId = setTimeout(() => setCopied(false), 3000);
+            return () => clearTimeout(timeoutId);
+        }
+    }, [copied, setCopied]);
 
     return <section className={css.root}>
         <h2 className={css.title}>Access token</h2>
@@ -28,12 +35,14 @@ export function ApiProfileSection(props: ApiProfileSectionProps) {
         <div className={css.row}>
             <label className={css.key}>
                 Your unique key
-                <input
-                    ref={keyInput}
-                    value={token}
-                    readOnly
-                    disabled={!token}
-                />
+                <div className={token ? css.checkWrapper : undefined}>
+                    <input
+                        ref={keyInput}
+                        value={token}
+                        readOnly
+                        disabled={!token}
+                    />
+                </div>
             </label>
         </div>
 
@@ -45,6 +54,8 @@ export function ApiProfileSection(props: ApiProfileSectionProps) {
             </> :
             <button>Generate key</button>
         }</div>
+
+        {copied ? <p className={css.copied}>Copied!</p> : null}
 
     </section>;
 }

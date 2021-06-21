@@ -11,6 +11,11 @@
 
   box-sizing: content-box;
   font-size: 14px;
+
+  &:disabled {
+    color: color.$grey-light;
+    background-color: color.$grey-faint;
+  }
 }
 
 @mixin label {

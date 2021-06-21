@@ -12,6 +12,7 @@
 @mixin subtitle {
   @include typography.small-paragraph;
   color: color.$grey;
+  margin-bottom: 40px; /* TODO Check figma */
 }
 
 @mixin row {

@@ -12,4 +12,8 @@
     .row {
         @include section.row;
     }
+
+    .key {
+        width: 100%;
+    }
 }

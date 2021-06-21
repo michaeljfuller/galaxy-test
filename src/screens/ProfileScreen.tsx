@@ -10,7 +10,7 @@ export interface ProfileScreenProps extends RouteChildrenProps {}
 export function ProfileScreen(props: ProfileScreenProps) {
     return <div className={css.root}>
         <NavBar />
-        <h1>ProfileScreen</h1>
+        <h1>Account settings</h1>
         <SideNavigator links={[
             {title: "General", path: '', exact: true, component: GeneralProfileSection},
             {title: "Plan", path: '/plan', component: null},

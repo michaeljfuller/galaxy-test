@@ -8,7 +8,6 @@
   align-items: center;
   border-bottom: 1px solid color.$grey-faint; /* TODO Check in figma */
   padding: 20px 0; /* TODO Check in figma */
-  margin: 0 100px; /* TODO Check in figma */
 
   .menu {
     @include misc.circle();
@@ -33,7 +32,7 @@
 
     & > * {
       @include typography.small-paragraph;
-      color: color.$grey; /* TODO Check in figma */
+      color: color.$primary; /* TODO Check in figma */
       user-select: none;
     }
   }

@@ -5,6 +5,7 @@ import {classNames} from "../../utils/component-utils";
 import InnerGridIcon from "../icons/InnerGridIcon";
 import useAuth from "../../hooks/useAuth";
 import {errorMessage} from "../../utils/error-utils";
+import Badge from "../ui/Badge";
 
 export interface NavBarProps extends RouteComponentProps {
     className?: string;
@@ -51,7 +52,9 @@ export function RawNavBar(props: NavBarProps) {
         </div>
 
         <div className={css.actions}>
-            <div className={css.notifications}>Bell</div>
+            <Badge value={3}>
+                <div className={css.notifications}>Bell</div>
+            </Badge>
             <img className={css.avatar} src={user?.avatar} alt="avatar" />
             <button onClick={handleLogOut} disabled={disabled}>Log out</button>
         </div>

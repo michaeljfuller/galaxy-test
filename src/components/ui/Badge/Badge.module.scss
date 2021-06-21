@@ -1,0 +1,26 @@
+@use "/styles/color";
+@use "/styles/typography";
+
+.root {
+  position: relative;
+  .badge {
+    @include typography.text;
+
+    background-color: color.$primary;
+    color: color.$primary-contrast;
+
+    font-size: 10px; /* TODO Check figma */
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    $size: 15px; /* TODO Check figma */
+    border-radius: $size/2;
+    min-width: $size;
+    line-height: $size;
+  }
+}

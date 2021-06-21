@@ -2,11 +2,11 @@
 @use "styles/typography";
 
 @mixin root {
-
+  margin-bottom: 20px;
 }
 
 @mixin title {
-
+  margin: 0; /* TODO Check figma */
 }
 
 @mixin subtitle {

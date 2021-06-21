@@ -15,8 +15,14 @@
 }
 
 @mixin row {
+  $margin-bottom: 30px; /* TODO Check figma */
+
   display: flex;
   flex-direction: row;
   gap: 30px; /* TODO Check figma */
-  margin-bottom: 30px; /* TODO Check figma */
+  margin-bottom: $margin-bottom;
+
+  & + hr {
+    margin: 0 0 $margin-bottom 0;
+  }
 }

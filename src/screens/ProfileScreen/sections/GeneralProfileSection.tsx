@@ -12,6 +12,11 @@ export function GeneralProfileSection(props: GeneralProfileSectionProps) {
 
     const changed = JSON.stringify(currentUser) !== JSON.stringify(user); // TODO Lazy, change this
 
+    let submitDisabled = "";
+    if (!changed) {
+        submitDisabled = "No changes made.";
+    }
+
     const handleFirstName = useCallback<OnInputChange>(event => {
         setUser({...user, givenName: event.target.value});
     }, [user, setUser])
@@ -29,14 +34,18 @@ export function GeneralProfileSection(props: GeneralProfileSectionProps) {
         <h2 className={css.title}>General</h2>
         <p className={css.subtitle}>Click field boxes to edit and then save your changes.</p>
 
-        <label className={css.avatar}>
-            Avatar
-            <div>
-                <img src={user.avatar} alt="avatar" />
-                <button>Upload</button>
-                <button disabled>Remove</button>
-            </div>
-        </label>
+        <div className={css.row}>
+
+            <label className={css.avatar}>
+                Avatar
+                <div>
+                    <img src={user.avatar} alt="avatar" />
+                    <button>Upload</button>
+                    <button className={css.secondary}>Remove</button>
+                </div>
+            </label>
+
+        </div>
 
         <hr />
 
@@ -79,7 +88,7 @@ export function GeneralProfileSection(props: GeneralProfileSectionProps) {
 
         <hr />
 
-        <input className={css.submit} disabled={!changed} type="submit" value="Save Changes" />
+        <input className={css.submit} disabled={!!submitDisabled} type="submit" value="Save Changes" title={submitDisabled||undefined} />
 
     </section>;
 }

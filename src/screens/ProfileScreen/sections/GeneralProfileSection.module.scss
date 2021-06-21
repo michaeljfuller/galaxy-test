@@ -42,5 +42,9 @@
 
     button {
         @include button.ghost;
+
+        &.secondary {
+            @include button.ghost-secondary;
+        }
     }
 }

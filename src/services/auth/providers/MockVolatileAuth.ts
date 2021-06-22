@@ -1,3 +1,4 @@
+import {wait, createUser} from "../../../utils/mock-utils";
 import type {AuthProvider} from "../AuthProvider";
 
 export interface MockVolatileAuthOptions {
@@ -45,21 +46,4 @@ export default class MockVolatileAuth implements AuthProvider {
         return this.currentUser = createUser(email);
     }
 
-}
-
-function wait(ms: number) {
-    return new Promise(resolve => {
-        setTimeout(resolve, ms);
-    });
-}
-
-function createUser(email: string): User {
-    return {
-        email,
-        givenName: email.split('@')[0] || '',
-        familyName: email.split('@')[1] || '',
-        token: Math.random().toString().split('.').pop() || '',
-        avatar: "/avatar.jpg",
-        phone: Math.random().toString().split('.')[1].slice(0, 10),
-    };
 }

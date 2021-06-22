@@ -1,5 +1,8 @@
 import React from 'react';
 import {BrowserRouter} from "react-router-dom";
+import {Provider as ReduxProvider} from 'react-redux'
+
+import store from "./store";
 
 import AuthContext from "./services/auth/AuthContext";
 import MockVolatileAuth from "./services/auth/providers/MockVolatileAuth";
@@ -21,9 +24,11 @@ export function AppWrapper(props: React.PropsWithChildren<{}>) {
             <ArticlesContext.Provider value={articles}>
                 <NotificationsContext.Provider value={notifications}>
 
-                    <BrowserRouter>
-                        {props.children}
-                    </BrowserRouter>
+                    <ReduxProvider store={store}>
+                        <BrowserRouter>
+                            {props.children}
+                        </BrowserRouter>
+                    </ReduxProvider>
 
                 </NotificationsContext.Provider>
             </ArticlesContext.Provider>

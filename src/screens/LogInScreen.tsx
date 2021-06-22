@@ -5,10 +5,15 @@ import css from "./LogInScreen/LogInScreen.module.scss";
 import ScienceBackground, {defaultScienceBackgroundStyle} from "../components/decoration/ScienceBackground";
 import LogInForm, {LogInFormProps} from "./LogInScreen/LogInForm";
 
+import {useStoreDispatch, useStoreSelector} from "../hooks/useStore";
+import {setUser} from "../store/user";
+
 export interface LogInScreenProps extends RouteChildrenProps {}
 
 export function LogInScreen(props: LogInScreenProps) {
     const auth = useAuth();
+    const dispatch = useStoreDispatch();
+
     const [processing, setProcessing] = useState(false);
     const [error, setError] = useState<Error|null>(null);
 
@@ -16,8 +21,8 @@ export function LogInScreen(props: LogInScreenProps) {
         try {
             setError(null);
             setProcessing(true);
-            await auth.signIn(email, password);
-            props.history.push("/");
+            const user = await auth.signIn(email, password);
+            dispatch(setUser(user));
         } catch(e) {
             setError(e);
             setProcessing(false);

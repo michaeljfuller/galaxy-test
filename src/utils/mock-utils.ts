@@ -18,7 +18,7 @@ export function createUser(email: string): User {
 export function createArticle(id: number): Article {
     return {
         id,
-        published: new Date,
+        published: new Date(),
         title: `Article ${id}`,
         snippet: `Snippet of article ${id}`,
     };

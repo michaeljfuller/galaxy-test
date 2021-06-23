@@ -40,7 +40,7 @@ export function RawNavBar(props: NavBarProps) {
         if (signInError) alert(errorMessage(signInError));
     }, [signInError]);
 
-    return <nav className={classNames(css.root)} style={props.style}>
+    return <nav className={classNames(css.root, props.className)} style={props.style}>
 
         <div className={css.menu}><InnerGridIcon /></div>
         <p className={css.title}>Galactic</p>

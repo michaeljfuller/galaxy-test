@@ -10,7 +10,7 @@
     background-color: color.$primary;
     color: color.$primary-contrast;
 
-    font-size: 10px; /* TODO Check figma */
+    font-size: 9px;
     font-weight: bold;
     text-align: center;
     user-select: none;
@@ -19,8 +19,8 @@
     top: 0;
     right: 0;
 
-    $horizontal-padding: 4px;
-    $size: 15px; /* TODO Check figma */
+    $horizontal-padding: 2.5px;
+    $size: 15px;
     border-radius: math.div($size, 2);
     padding: 0 $horizontal-padding;
     min-width: $size - $horizontal-padding*2;

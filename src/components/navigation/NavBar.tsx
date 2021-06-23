@@ -11,6 +11,7 @@ import {signOut} from "../../store/user/user-actions";
 import useNotifications from "../../hooks/useNotifications";
 import PopUnder from "../ui/PopUnder";
 import LatestNotificationsList from "./NavBar/LatestNotificationsList";
+import useBasePath from "../../hooks/useBasePath";
 
 export interface NavBarProps extends RouteComponentProps {
     className?: string;
@@ -25,7 +26,7 @@ const links = Object.freeze([
 ]);
 
 export function RawNavBar(props: NavBarProps) {
-    const user = useUser();
+    const user = useUser(true);
     const notifications = useNotifications();
     const unreadCount = notifications.latest.filter(n => !n.read).length;
 
@@ -37,6 +38,9 @@ export function RawNavBar(props: NavBarProps) {
 
     const handleLogOut = () => dispatch(signOut());
     const disabled = signingOut;
+
+    const bellIcon = useBasePath('bell.svg');
+    const avatarIcon = useBasePath(user.avatar);
 
     useEffect(() => {
         if (signInError) alert(errorMessage(signInError));
@@ -66,11 +70,11 @@ export function RawNavBar(props: NavBarProps) {
             >
                 <Badge value={unreadCount} hidden={notifications.fetchingLatest}>
                     <div className={css.notifications} onClick={handleToggleNotifications}>
-                        <img src="/bell.svg" alt="Notifications" />
+                        <img src={bellIcon} alt="Notifications" />
                     </div>
                 </Badge>
             </PopUnder>
-            <img className={css.avatar} src={user?.avatar} alt="avatar" />
+            <img className={css.avatar} src={avatarIcon} alt="avatar" />
             <button onClick={handleLogOut} disabled={disabled}>Log out</button>
         </div>
 

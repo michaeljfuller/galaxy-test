@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import css from "./ApiProfileSection.module.scss";
 import useUser from "../../../hooks/useUser";
+import useBasePath from "../../../hooks/useBasePath";
 
 export interface ApiProfileSectionProps {}
 
@@ -8,6 +9,7 @@ export function ApiProfileSection(props: ApiProfileSectionProps) {
     const keyInput = useRef<HTMLInputElement>(null);
     const [copied, setCopied] = useState(false);
     const currentUser = useUser(true);
+    const copyIcon = useBasePath('copy-icon.svg');
 
     const token = currentUser.token;
 
@@ -50,7 +52,7 @@ export function ApiProfileSection(props: ApiProfileSectionProps) {
             token ?
             <>
                 <button className={css.ghost} onClick={handleCopyKey}>
-                    <img src="/copy-icon.svg" alt="copy" /> Copy to clipboard
+                    <img src={copyIcon} alt="copy" /> Copy to clipboard
                 </button>
                 <button className={css.ghostSecondary}>Generate another</button>
             </> :

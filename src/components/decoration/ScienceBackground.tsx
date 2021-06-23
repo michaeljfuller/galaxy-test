@@ -1,6 +1,7 @@
 import React, {CSSProperties} from "react";
 import css from './ScienceBackground/ScienceBackground.module.css';
 import {classNames, styles} from "../../utils/component-utils";
+import useBasePath from "../../hooks/useBasePath";
 
 export interface ScienceBackgroundProps {
     className?: string;
@@ -11,12 +12,13 @@ export default function ScienceBackground({
     className = '',
     style,
 }: ScienceBackgroundProps) {
+    const background = useBasePath('science-background-image.jpg');
     return <div
         className={classNames(css.root, className)}
         style={styles(defaultScienceBackgroundStyle, style)}
     >
         <div className={css.underlay} />
-        <img className={css.image} src="/science-background-image.jpg" alt="science background" />
+        <img className={css.image} src={background} alt="science background" />
     </div>
 }
 

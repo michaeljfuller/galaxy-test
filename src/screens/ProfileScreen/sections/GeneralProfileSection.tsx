@@ -1,6 +1,7 @@
 import React, {useState, useCallback, InputHTMLAttributes} from "react";
 import css from "./GeneralProfileSection.module.scss";
 import useUser from "../../../hooks/useUser";
+import useBasePath from "../../../hooks/useBasePath";
 
 type OnInputChange = Exclude<InputHTMLAttributes<HTMLInputElement>['onChange'], undefined>;
 
@@ -9,6 +10,7 @@ export interface GeneralProfileSectionProps {}
 export function GeneralProfileSection(props: GeneralProfileSectionProps) {
     const currentUser = useUser(true);
     const [user, setUser] = useState({...currentUser});
+    const avatarIcon = useBasePath(user.avatar);
 
     const changed = JSON.stringify(currentUser) !== JSON.stringify(user);
 
@@ -39,7 +41,7 @@ export function GeneralProfileSection(props: GeneralProfileSectionProps) {
             <label className={css.avatar}>
                 Avatar
                 <div>
-                    <img src={user.avatar} alt="avatar" />
+                    <img src={avatarIcon} alt="avatar" />
                     <button>Upload</button>
                     <button className={css.secondary}>Remove</button>
                 </div>

@@ -14,8 +14,8 @@ export interface LogInFormProps {
 
 export function LogInForm(props: LogInFormProps) {
     const {disabled} = props;
-    const [email, setEmail] = useState("test@redacted.tech");
-    const [password, setPassword] = useState("testPassword123");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSubmit: FormHTMLAttributes<HTMLFormElement>['onSubmit'] = async (event) => {
         event.preventDefault();
@@ -54,9 +54,9 @@ export function LogInForm(props: LogInFormProps) {
 
         {props.error ? <p className={css.error}>{props.error}</p> : null}
 
-        <input disabled={disabled} type="submit" value="Log In" />
+        <input disabled={disabled} type="submit" value="Log in" />
 
-        <p>Don’t have an account yet? <Link to="/sign-up">Sign up</Link></p>
+        <p className={css.signUp}>Don’t have an account yet? <Link to="/sign-up">Sign up</Link></p>
 
     </form>;
 }

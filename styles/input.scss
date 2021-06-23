@@ -9,7 +9,7 @@
   border: 1px solid color.$grey-faint;
   border-radius: 8px;
 
-  box-sizing: content-box;
+  box-sizing: border-box;
   font-size: 14px;
 
   &:disabled {
@@ -23,4 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  span {
+    @include typography.button-heading;
+  }
 }

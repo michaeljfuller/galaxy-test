@@ -3,9 +3,10 @@
 .root {
   display: flex;
   flex-direction: column;
+  width: 480px;
 
   input {
-    width: 446px;
+    width: 100%;
     &::placeholder {
       color: color.$grey-light;
     }
@@ -23,6 +24,11 @@
     color: color.$bad;
     margin: 0;
     padding-bottom: 5px;
+  }
+
+  .signUp {
+    font-size: 14px;
+    color: color.$grey;
   }
 }
 

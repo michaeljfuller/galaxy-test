@@ -28,7 +28,7 @@ export function LogInScreen(props: LogInScreenProps) {
     return <div className={css.root}>
         <div className={css.formContainer}>
             <div>
-                <h1>Log In</h1>
+                <h1>Log in</h1>
                 <LogInForm
                     onSubmit={handleSubmit}
                     error={error}

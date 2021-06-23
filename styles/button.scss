@@ -1,8 +1,10 @@
 @use 'color';
 @use 'typography';
+@use 'font';
 
 @mixin primary {
   @include typography.button-heading;
+  @include font.Inter;
 
   padding: 21px 24px;
 

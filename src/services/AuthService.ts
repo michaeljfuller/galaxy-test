@@ -1,4 +1,4 @@
-export interface AuthProvider {
+export interface AuthService {
     signUp: (email: string, password: string) => Promise<User>;
     signIn: (email: string, password: string) => Promise<User>;
     signOut: () => Promise<boolean>;

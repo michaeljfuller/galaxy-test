@@ -1,5 +1,5 @@
-import {wait, createUser} from "../../../utils/mock-utils";
-import type {AuthProvider} from "../AuthProvider";
+import {wait, createUser} from "../../utils/mock-utils";
+import type {AuthService} from "../AuthService";
 
 export interface MockVolatileAuthOptions {
     fetchUserDelay: number;
@@ -9,7 +9,7 @@ export interface MockVolatileAuthOptions {
 }
 
 /** A mock auth service that doesn't persist the user. */
-export default class MockVolatileAuth implements AuthProvider {
+export default class MockVolatileAuth implements AuthService {
     public currentUser?: User;
 
     private options: MockVolatileAuthOptions = {

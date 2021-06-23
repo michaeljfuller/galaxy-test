@@ -1,11 +1,11 @@
-import type {NotificationsProvider, NotificationFilters} from "../NotificationsProvider";
-import {wait, createNotification} from "../../../utils/mock-utils";
+import type {NotificationsService, NotificationFilters} from "../NotificationsService";
+import {wait, createNotification} from "../../utils/mock-utils";
 
 export interface MockNotificationsApiOptions {
     fetchNotificationsDelay: number;
 }
 
-export default class MockNotificationsApi implements NotificationsProvider {
+export default class MockNotificationsApi implements NotificationsService {
     private options: MockNotificationsApiOptions = {
         fetchNotificationsDelay: 500,
     };

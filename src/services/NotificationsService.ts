@@ -1,7 +1,7 @@
-export interface NotificationsProvider {
+export interface NotificationsService {
     fetchNotifications(offset: number, limit: number, filters?: NotificationFilters): Promise<Notification[]>;
 }
-export default NotificationsProvider;
+export default NotificationsService;
 
 export interface NotificationFilters {
     read?: boolean; // read/unread filter

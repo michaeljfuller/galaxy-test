@@ -1,4 +1,4 @@
-import MockVolatileAuth from "../services/auth/providers/MockVolatileAuth";
+import MockVolatileAuth from "../services/auth/MockVolatileAuth";
 
 export const sagaContexts = {
     auth: new MockVolatileAuth({}),

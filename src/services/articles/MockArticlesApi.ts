@@ -1,11 +1,11 @@
-import {ArticlesProvider, ArticleFilters} from "../ArticlesProvider";
-import {wait, createArticle} from "../../../utils/mock-utils";
+import {ArticlesService, ArticleFilters} from "../ArticlesService";
+import {wait, createArticle} from "../../utils/mock-utils";
 
 export interface MockArticlesApiOptions {
     fetchArticlesDelay: number;
 }
 
-export default class MockArticlesApi implements ArticlesProvider {
+export default class MockArticlesApi implements ArticlesService {
     current: Article[] = [];
 
     private options: MockArticlesApiOptions = {

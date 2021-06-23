@@ -21,6 +21,7 @@
     $size: 15px; /* TODO Check figma */
     border-radius: $size/2;
     min-width: $size;
+    min-height: $size;
     line-height: $size;
   }
 }

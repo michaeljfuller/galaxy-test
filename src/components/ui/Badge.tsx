@@ -6,6 +6,7 @@ export interface BadgeProps {
     value: string|number;
     className?: string;
     style?: CSSProperties;
+    hidden?: boolean;
 }
 
 export function Badge(props: React.PropsWithChildren<BadgeProps>) {
@@ -14,7 +15,7 @@ export function Badge(props: React.PropsWithChildren<BadgeProps>) {
         style={props.style}
     >
         {props.children}
-        <div className={css.badge}>{props.value}</div>
+        {props.hidden ? null : <div className={css.badge}>{props.value}</div>}
     </div>
 }
 export default Badge;

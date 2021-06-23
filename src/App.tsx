@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Switch, Route, Redirect} from "react-router-dom";
 import css from './App.module.scss';
 
@@ -6,7 +6,19 @@ import AuthenticatedRoute from "./navigation/AuthenticatedRoute";
 import LogInScreen from "./screens/LogInScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
+import {useStoreDispatch} from "./hooks/useStore";
+import {fetchLatest as fetchLatestNotifications} from "./store/slices/notifications";
+import useUser from "./hooks/useUser";
+
 function App() {
+    const user = useUser();
+    const dispatch = useStoreDispatch();
+
+    const userId = user?.email;
+    useEffect(() => {
+        if (userId) dispatch(fetchLatestNotifications());
+    }, [userId, dispatch]);
+
     return <div className={css.root}>
         <Switch>
 

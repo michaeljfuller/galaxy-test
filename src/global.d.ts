@@ -6,16 +6,16 @@ declare interface User {
     avatar: string;
     phone: string;
 }
-declare interface Notification {
+declare interface UserNotification {
     id: string;
     title: string;
     message: string;
-    timeStamp: Date;
+    timeStamp: string;
     read: boolean;
 }
 declare interface Article {
     id: number;
     title: string;
     snippet: string;
-    published: Date;
+    published: string;
 }

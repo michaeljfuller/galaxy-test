@@ -1,16 +1,16 @@
 import {call, put, takeLatest, getContext} from 'redux-saga/effects';
+import type {PayloadAction} from "@reduxjs/toolkit";
 
 import {signIn, SignInPayload, signInError, signOut, signOutError, setUser} from "../slices/user";
 import type {SagaContext} from "../sagaContexts";
-import type {PayloadAction} from "@reduxjs/toolkit";
 
 function* signInWorker(action: PayloadAction<SignInPayload>) {
     try {
-        const auth: SagaContext<"auth"> = yield getContext("auth");
+        const api: SagaContext<"auth"> = yield getContext("auth");
 
         // @ts-ignore
         const user: any = yield call(
-            auth.signIn.bind(auth),
+            [api, api.signIn],
             action.payload.email, action.payload.password
         );
 
@@ -21,12 +21,10 @@ function* signInWorker(action: PayloadAction<SignInPayload>) {
 }
 function* signOutWorker() {
     try {
-        const auth: SagaContext<"auth"> = yield getContext("auth");
+        const api: SagaContext<"auth"> = yield getContext("auth");
 
         // @ts-ignore
-        yield call(
-            auth.signOut.bind(auth),
-        );
+        yield call([api, api.signOut]);
 
         yield put(setUser(undefined));
     } catch (e) {
@@ -34,7 +32,7 @@ function* signOutWorker() {
     }
 }
 
-export function* userSaga() {
+export default function* userSaga() {
     yield takeLatest(signIn.type, signInWorker);
     yield takeLatest(signOut.type, signOutWorker);
 }

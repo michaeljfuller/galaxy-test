@@ -1,5 +1,6 @@
 export interface NotificationsService {
-    fetchNotifications(offset: number, limit: number, filters?: NotificationFilters): Promise<Notification[]>;
+    fetchNotifications(offset: number, limit: number, filters?: NotificationFilters): Promise<UserNotification[]>;
+    fetchLatest(): Promise<UserNotification[]>;
 }
 export default NotificationsService;
 

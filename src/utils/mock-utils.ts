@@ -18,18 +18,18 @@ export function createUser(email: string): User {
 export function createArticle(id: number): Article {
     return {
         id,
-        published: new Date(),
+        published: (new Date()).toISOString(),
         title: `Article ${id}`,
         snippet: `Snippet of article ${id}`,
     };
 }
 
-export function createNotification(id: string): Notification {
+export function createNotification(id: string): UserNotification {
     return {
         id,
         title: `Notification ${id}`,
         message: `Message for notification ${id}`,
-        timeStamp: new Date(),
+        timeStamp: new Date().toISOString(),
         read: id.length % 2 === 0
-    } as Notification;
+    };
 }

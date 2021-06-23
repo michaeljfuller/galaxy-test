@@ -7,7 +7,7 @@ import LogInScreen from "./screens/LogInScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
 import {useStoreDispatch} from "./hooks/useStore";
-import {fetchLatest as fetchLatestNotifications} from "./store/slices/notifications";
+import {fetchLatest as fetchLatestNotifications} from "./store/notifications/notifications-slice";
 import useUser from "./hooks/useUser";
 
 function App() {

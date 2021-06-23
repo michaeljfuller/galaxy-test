@@ -1,7 +1,7 @@
 import {call, put, takeLatest, getContext} from 'redux-saga/effects';
 import type {PayloadAction} from "@reduxjs/toolkit";
 
-import {signIn, SignInPayload, signInError, signOut, signOutError, setUser} from "../slices/user";
+import {signIn, SignInPayload, signInError, signOut, signOutError, setUser} from "./user-slice";
 import type {SagaContext} from "../sagaContexts";
 
 function* signInWorker(action: PayloadAction<SignInPayload>) {

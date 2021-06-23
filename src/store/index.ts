@@ -4,8 +4,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from "./sagas";
 import sagaContexts from "./sagaContexts";
 
-import userReducer from './slices/user';
-import notificationsReducer from './slices/notifications';
+import userReducer from './user/user-slice';
+import notificationsReducer from './notifications/notifications-slice';
 
 const sagaMiddleware = createSagaMiddleware({ context: sagaContexts });
 

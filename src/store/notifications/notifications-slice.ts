@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 interface NotificationsState {
     latest: UserNotification[];
     fetchingLatest: boolean;
-    fetchLatestError?: Error;
+    fetchLatestError?: string;
 }
 const initialState: NotificationsState = {
     latest: [],
@@ -20,7 +20,7 @@ export default createSlice({
             state.fetchingLatest = true;
             state.fetchLatestError = undefined;
         },
-        fetchLatestError: (state, action: PayloadAction<Error>) => {
+        fetchLatestError: (state, action: PayloadAction<string>) => {
             state.fetchingLatest = false;
             state.fetchLatestError = action.payload;
         },

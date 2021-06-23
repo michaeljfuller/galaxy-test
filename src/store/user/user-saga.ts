@@ -3,6 +3,7 @@ import type {PayloadAction} from "@reduxjs/toolkit";
 
 import {signIn, SignInPayload, signInError, signOut, signOutError, setUser} from "./user-actions";
 import type {SagaContext} from "../sagaContexts";
+import {errorMessage} from "../../utils/error-utils";
 
 function* signInWorker(action: PayloadAction<SignInPayload>) {
     try {
@@ -16,7 +17,7 @@ function* signInWorker(action: PayloadAction<SignInPayload>) {
 
         yield put(setUser(user));
     } catch (e) {
-        yield put(signInError(e));
+        yield put(signInError(errorMessage(e)));
     }
 }
 function* signOutWorker() {

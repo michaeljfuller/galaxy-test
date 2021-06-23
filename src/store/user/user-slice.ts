@@ -4,9 +4,9 @@ interface UserState {
     current?: User;
     signingIn: boolean;
     signingInAs?: SignInPayload;
-    signInError?: Error;
+    signInError?: string;
     signingOut: boolean;
-    signOutError?: Error;
+    signOutError?: string;
 }
 const initialState: UserState = {
     current: undefined,
@@ -30,7 +30,7 @@ export default createSlice({
             state.signingInAs = action.payload;
             state.signInError = undefined;
         },
-        signInError: (state, action: PayloadAction<Error>) => {
+        signInError: (state, action: PayloadAction<string>) => {
             state.signingIn = false;
             state.signingInAs = undefined;
             state.signInError = action.payload;
@@ -40,7 +40,7 @@ export default createSlice({
             state.signingOut = true;
             state.signOutError = undefined;
         },
-        signOutError: (state, action: PayloadAction<Error>) => {
+        signOutError: (state, action: PayloadAction<string>) => {
             state.signingOut = false;
             state.signOutError = action.payload;
         },

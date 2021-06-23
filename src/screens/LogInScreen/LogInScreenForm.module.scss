@@ -10,17 +10,20 @@
       color: color.$grey-light;
     }
   }
+
+  .email {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+  .password {
+    margin-bottom: 32px;
+  }
+
+  .error {
+    color: color.$bad;
+    margin: 0;
+    padding-bottom: 5px;
+  }
 }
 
 
-.email {
-  margin-top: 48px;
-  margin-bottom: 24px;
-}
-.password {
-  margin-bottom: 32px;
-}
-
-.error {
-  color: color.$bad;
-}

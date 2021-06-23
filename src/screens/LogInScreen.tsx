@@ -31,7 +31,7 @@ export function LogInScreen(props: LogInScreenProps) {
                 <h1>Log In</h1>
                 <LogInForm
                     onSubmit={handleSubmit}
-                    error={error?.message || error?.name}
+                    error={error}
                     disabled={processing}
                 />
             </div>

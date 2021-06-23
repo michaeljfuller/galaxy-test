@@ -27,6 +27,8 @@ const links = Object.freeze([
 export function RawNavBar(props: NavBarProps) {
     const user = useUser();
     const notifications = useNotifications();
+    const unreadCount = notifications.latest.filter(n => !n.read).length;
+
     const dispatch = useStoreDispatch();
     const {signingOut, signInError} = useStoreSelector(state => state.user);
 
@@ -62,7 +64,7 @@ export function RawNavBar(props: NavBarProps) {
                 content={LatestNotificationsList}
                 className={css.popUnder}
             >
-                <Badge value={notifications.latest.length} hidden={notifications.fetchingLatest}>
+                <Badge value={unreadCount} hidden={notifications.fetchingLatest}>
                     <div className={css.notifications} onClick={handleToggleNotifications}>
                         <img src="/bell.svg" alt="Notifications" />
                     </div>

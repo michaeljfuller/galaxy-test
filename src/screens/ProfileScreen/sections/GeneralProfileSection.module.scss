@@ -21,10 +21,10 @@
     .avatar {
         div {
             display: flex;
-            gap: 15px; /* TODO Check size in figma */
+            gap: 16px;
         }
         img {
-            @include misc.circle(); /* TODO Check size in figma */
+            @include misc.circle;
         }
     }
     .delete > div {

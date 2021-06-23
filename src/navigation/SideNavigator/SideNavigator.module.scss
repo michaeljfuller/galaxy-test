@@ -6,18 +6,18 @@
 }
 
 .side {
-  margin-right: 50px; /* TODO Check figma */
+  margin-right: 135px;
 
   .link {
     @include typography.sub-heading;
-    width: 250px; /* TODO Check figma */
+    width: 276px;
     line-height: 50px;
     border-radius: 30px;
     padding-left: 30px;
-    color: color.$grey-light; /* TODO Check figma */
+    color: color.$grey;
 
     &.disabled {
-      color: color.$grey-faint;
+      color: color.$grey-light;
       user-select: none;
     }
     &.active {

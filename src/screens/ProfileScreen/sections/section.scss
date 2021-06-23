@@ -6,24 +6,24 @@
 }
 
 @mixin title {
-  margin: 0; /* TODO Check figma */
+  margin: 0;
 }
 
 @mixin subtitle {
   @include typography.small-paragraph;
   color: color.$grey;
-  margin-bottom: 40px; /* TODO Check figma */
+  margin-bottom: 32px;
 }
 
 @mixin row {
-  $margin-bottom: 30px; /* TODO Check figma */
+  $gap: 24px;
 
   display: flex;
   flex-direction: row;
-  gap: 30px; /* TODO Check figma */
-  margin-bottom: $margin-bottom;
+  gap: $gap;
+  margin-bottom: $gap;
 
   & + hr {
-    margin: 0 0 $margin-bottom 0;
+    margin: 0 0 $gap 0;
   }
 }

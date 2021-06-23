@@ -10,7 +10,7 @@ export function GeneralProfileSection(props: GeneralProfileSectionProps) {
     const currentUser = useUser(true);
     const [user, setUser] = useState({...currentUser});
 
-    const changed = JSON.stringify(currentUser) !== JSON.stringify(user); // TODO Lazy, change this
+    const changed = JSON.stringify(currentUser) !== JSON.stringify(user);
 
     let submitDisabled = "";
     if (!changed) {

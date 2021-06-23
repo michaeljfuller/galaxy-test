@@ -1,14 +1,15 @@
 @mixin circle(
-  $size: 50px, /* TODO Check in figma */
-  $box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1) /* TODO Check in figma */
+  $size: 48px
 ) {
   border-radius: 100%;
   background-color: white;
-  box-shadow: $box-shadow;
   height: $size;
   width: $size;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+@mixin box-shadow() {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05)
 }

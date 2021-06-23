@@ -6,19 +6,21 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid #F6F7FA;
+  border-bottom: 1px solid color.$grey-white;
   padding: 32px 0;
 
   .menu {
-    @include misc.circle();
+    @include misc.circle;
+    @include misc.box-shadow;
   }
   .notifications {
-    @include misc.circle();
+    @include misc.circle;
+    @include misc.box-shadow;
     user-select: none;
     cursor: pointer;
   }
   .avatar {
-    @include misc.circle();
+    @include misc.circle;
   }
 
   .title {
@@ -42,6 +44,12 @@
   .actions {
     display: flex;
     gap: 32px;
+
+    button {
+      height: 48px;
+      width: 100px;
+      padding: 0;
+    }
   }
 
   .popUnder {

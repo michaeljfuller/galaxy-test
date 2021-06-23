@@ -25,12 +25,14 @@
             &:after {
                 position: absolute;
                 top: 0;
-                right: -30px;
+                right: 0;
+                padding-right: 18px; /* Pad-right, rather than position right, so this area isn't selectable */
                 height: 100%;
                 display: flex;
                 align-items: center;
                 color: color.$good;
-                content: "Check"; /* TODO Add check character */
+                content: "✓";
+                font-size: 26px;
             }
         }
     }

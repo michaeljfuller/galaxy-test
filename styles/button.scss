@@ -19,6 +19,10 @@
   background-color: color.$primary;
   color: color.$primary-contrast;
 
+  img {
+    padding-right: 8px;
+  }
+
   &:disabled {
     background-color: color.$primary-faded;
     cursor: not-allowed;

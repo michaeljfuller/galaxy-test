@@ -49,7 +49,9 @@ export function ApiProfileSection(props: ApiProfileSectionProps) {
         <div className={css.row}>{
             token ?
             <>
-                <button className={css.ghost} onClick={handleCopyKey}>[ICON] Copy to clipboard</button>
+                <button className={css.ghost} onClick={handleCopyKey}>
+                    <img src="/copy-icon.svg" alt="copy" /> Copy to clipboard
+                </button>
                 <button className={css.ghostSecondary}>Generate another</button>
             </> :
             <button>Generate key</button>

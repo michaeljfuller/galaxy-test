@@ -1,0 +1,10 @@
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .popUnder {
+    position: absolute;
+    top: 100%;
+  }
+}

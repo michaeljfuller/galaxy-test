@@ -63,7 +63,9 @@ export function RawNavBar(props: NavBarProps) {
                 className={css.popUnder}
             >
                 <Badge value={notifications.latest.length} hidden={notifications.fetchingLatest}>
-                        <div className={css.notifications} onClick={handleToggleNotifications}>Bell</div>
+                    <div className={css.notifications} onClick={handleToggleNotifications}>
+                        <img src="/bell.svg" alt="Notifications" />
+                    </div>
                 </Badge>
             </PopUnder>
             <img className={css.avatar} src={user?.avatar} alt="avatar" />

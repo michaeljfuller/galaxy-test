@@ -1,15 +1,13 @@
 import {RouteChildrenProps} from "react-router-dom";
-import NavBar from "../components/navigation/NavBar";
-import css from "./ProfileScreen/ProfileScreen.module.scss";
 import SideNavigator from "../navigation/SideNavigator";
 import GeneralProfileSection from "./ProfileScreen/sections/GeneralProfileSection";
 import ApiProfileSection from "./ProfileScreen/sections/ApiProfileSection";
+import ScreenWrapper from "./core/ScreenWrapper";
 
 export interface ProfileScreenProps extends RouteChildrenProps {}
 
 export function ProfileScreen(props: ProfileScreenProps) {
-    return <div className={css.root}>
-        <NavBar />
+    return <ScreenWrapper>
         <h1>Account settings</h1>
         <SideNavigator links={[
             {title: "General", path: '', exact: true, component: GeneralProfileSection},
@@ -20,6 +18,6 @@ export function ProfileScreen(props: ProfileScreenProps) {
             {title: "Billing History", path: '/billing-history', component: null},
             {title: "Legal", path: '/legal', component: null},
         ]} />
-    </div>;
+    </ScreenWrapper>;
 }
 export default ProfileScreen;

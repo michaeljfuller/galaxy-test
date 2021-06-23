@@ -9,6 +9,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import {useStoreDispatch} from "./hooks/useStore";
 import {fetchLatest as fetchLatestNotifications} from "./store/notifications/notifications-actions";
 import useUser from "./hooks/useUser";
+import NotificationsScreen from "./screens/NotificationsScreen";
 
 function App() {
     const user = useUser();
@@ -25,6 +26,7 @@ function App() {
             <Redirect exact from="/" to="/profile" />
             <Route path="/login" component={LogInScreen} />
             <AuthenticatedRoute redirectTo="/login" path="/profile" component={ProfileScreen}/>
+            <AuthenticatedRoute redirectTo="/login" path="/notifications/:id?" component={NotificationsScreen} />
 
             <Route path="*">
                 <h1>404</h1>

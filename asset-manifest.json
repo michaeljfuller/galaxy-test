@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/galaxy-test/static/css/main.8a15d1af.chunk.css",
-    "main.js": "/galaxy-test/static/js/main.9cd2d883.chunk.js",
-    "main.js.map": "/galaxy-test/static/js/main.9cd2d883.chunk.js.map",
+    "main.js": "/galaxy-test/static/js/main.4f8b4d7e.chunk.js",
+    "main.js.map": "/galaxy-test/static/js/main.4f8b4d7e.chunk.js.map",
     "runtime-main.js": "/galaxy-test/static/js/runtime-main.03fd0638.js",
     "runtime-main.js.map": "/galaxy-test/static/js/runtime-main.03fd0638.js.map",
     "static/js/2.3e403e49.chunk.js": "/galaxy-test/static/js/2.3e403e49.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.03fd0638.js",
     "static/js/2.3e403e49.chunk.js",
     "static/css/main.8a15d1af.chunk.css",
-    "static/js/main.9cd2d883.chunk.js"
+    "static/js/main.4f8b4d7e.chunk.js"
   ]
 }

@@ -1,5 +1,13 @@
 .root {
-  padding: 0 100px; /* TODO Check figma */
+  padding: 0 120px;
   height: 100vh;
   overflow-y: scroll;
+
+  .navBar {
+    margin-bottom: 64px;
+  }
+
+  h1:first-of-type {
+    margin-bottom: 64px;
+  }
 }

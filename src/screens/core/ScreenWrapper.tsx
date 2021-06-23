@@ -9,7 +9,7 @@ export type ScreenWrapperProps = PropsWithChildren<{
 
 export function ScreenWrapper(props: ScreenWrapperProps) {
     return <div className={classNames(css.root, props.className)}>
-        <NavBar />
+        <NavBar className={css.navBar} />
         {props.children}
     </div>;
 }

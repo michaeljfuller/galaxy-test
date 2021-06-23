@@ -6,12 +6,15 @@
 .root {
   h1 {
     @include typography.heading-1;
+    margin: 0;
   }
   h2 {
     @include typography.heading-2;
+    margin: 0;
   }
   h3 {
     @include typography.sub-heading;
+    margin: 0;
   }
   p {
     @include typography.paragraph;

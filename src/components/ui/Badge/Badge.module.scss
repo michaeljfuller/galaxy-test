@@ -19,9 +19,11 @@
     top: 0;
     right: 0;
 
+    $horizontal-padding: 4px;
     $size: 15px; /* TODO Check figma */
     border-radius: math.div($size, 2);
-    min-width: $size;
+    padding: 0 $horizontal-padding;
+    min-width: $size - $horizontal-padding*2;
     min-height: $size;
     line-height: $size;
   }

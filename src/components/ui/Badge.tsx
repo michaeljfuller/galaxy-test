@@ -4,18 +4,24 @@ import {classNames} from "../../utils/component-utils";
 
 export interface BadgeProps {
     value: string|number;
+    hidden?: boolean;
+
     className?: string;
     style?: CSSProperties;
-    hidden?: boolean;
+    containerClassName?: string;
+    containerStyle?: CSSProperties;
 }
 
 export function Badge(props: React.PropsWithChildren<BadgeProps>) {
     return <div
-        className={classNames(css.root, props.className)}
-        style={props.style}
+        className={classNames(css.root, props.containerClassName)}
+        style={props.containerStyle}
     >
         {props.children}
-        {props.hidden ? null : <div className={css.badge}>{props.value}</div>}
+        {props.hidden ? null : <div
+            className={classNames(css.badge, props.className)}
+            style={props.style}
+        >{props.value}</div>}
     </div>
 }
 export default Badge;

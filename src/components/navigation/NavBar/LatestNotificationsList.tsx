@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useNotifications from "../../../hooks/useNotifications";
 import css from "./LatestNotificationsList.module.scss";
 import {errorMessage} from "../../../utils/error-utils";
+import Badge from "../../ui/Badge";
 
 export function LatestNotificationsList() {
     const {
@@ -14,7 +15,9 @@ export function LatestNotificationsList() {
 
         <ul className={css.list}>
             {latest.map(notification => <Link key={notification.id} to={`/notifications/${notification.id}`}>
-                <li>{notification.title}</li>
+                <Badge value="Unread" hidden={notification.read}>
+                    <li>{notification.title}</li>
+                </Badge>
             </Link>)}
             {latest.length === 0 && !fetchingLatest ? <li>No notifications</li> : null}
         </ul>

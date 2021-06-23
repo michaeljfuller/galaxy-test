@@ -1,4 +1,4 @@
-import React, {CSSProperties, memo, useEffect} from "react";
+import React, {CSSProperties, memo, useEffect, useState} from "react";
 import {Link, withRouter, RouteComponentProps} from "react-router-dom";
 import css from "./NavBar/NavBar.module.scss";
 import {classNames} from "../../utils/component-utils";
@@ -9,6 +9,8 @@ import Badge from "../ui/Badge";
 import {useStoreDispatch, useStoreSelector} from "../../hooks/useStore";
 import {signOut} from "../../store/user/user-actions";
 import useNotifications from "../../hooks/useNotifications";
+import PopUnder from "../ui/PopUnder";
+import LatestNotificationsList from "./NavBar/LatestNotificationsList";
 
 export interface NavBarProps extends RouteComponentProps {
     className?: string;
@@ -28,9 +30,10 @@ export function RawNavBar(props: NavBarProps) {
     const dispatch = useStoreDispatch();
     const {signingOut, signInError} = useStoreSelector(state => state.user);
 
-    const handleLogOut = () => {
-        dispatch(signOut());
-    };
+    const [openNotifications, setOpenNotifications] = useState(false);
+    const handleOpenNotifications = () => setOpenNotifications(!openNotifications);
+
+    const handleLogOut = () => dispatch(signOut());
     const disabled = signingOut;
 
     useEffect(() => {
@@ -54,7 +57,9 @@ export function RawNavBar(props: NavBarProps) {
 
         <div className={css.actions}>
             <Badge value={notifications.latest.length} hidden={notifications.fetchingLatest}>
-                <div className={css.notifications}>Bell</div>
+                <PopUnder open={openNotifications} content={LatestNotificationsList} className={css.popUnder}>
+                    <div className={css.notifications} onClick={handleOpenNotifications}>Bell</div>
+                </PopUnder>
             </Badge>
             <img className={css.avatar} src={user?.avatar} alt="avatar" />
             <button onClick={handleLogOut} disabled={disabled}>Log out</button>

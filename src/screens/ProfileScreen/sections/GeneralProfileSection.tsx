@@ -1,13 +1,13 @@
 import React, {useState, useCallback, InputHTMLAttributes} from "react";
 import css from "./GeneralProfileSection.module.scss";
-import useAuth from "../../../hooks/useAuth";
+import useUser from "../../../hooks/useUser";
 
 type OnInputChange = Exclude<InputHTMLAttributes<HTMLInputElement>['onChange'], undefined>;
 
 export interface GeneralProfileSectionProps {}
 
 export function GeneralProfileSection(props: GeneralProfileSectionProps) {
-    const currentUser = useAuth().currentUser as User;
+    const currentUser = useUser(true);
     const [user, setUser] = useState({...currentUser});
 
     const changed = JSON.stringify(currentUser) !== JSON.stringify(user); // TODO Lazy, change this

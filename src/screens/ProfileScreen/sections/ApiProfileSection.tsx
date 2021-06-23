@@ -1,13 +1,13 @@
 import React, {useEffect, useRef, useState} from "react";
 import css from "./ApiProfileSection.module.scss";
-import useAuth from "../../../hooks/useAuth";
+import useUser from "../../../hooks/useUser";
 
 export interface ApiProfileSectionProps {}
 
 export function ApiProfileSection(props: ApiProfileSectionProps) {
     const keyInput = useRef<HTMLInputElement>(null);
     const [copied, setCopied] = useState(false);
-    const currentUser = useAuth().currentUser as User;
+    const currentUser = useUser(true);
 
     const token = currentUser.token;
 

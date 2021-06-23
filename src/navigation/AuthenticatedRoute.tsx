@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, RouteProps, Redirect, RedirectProps} from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useUser from "../hooks/useUser";
 
 export type AuthenticatedRouteProps = Omit<RouteProps, 'render'> & {
     redirectTo: RedirectProps['to'],
@@ -15,7 +15,7 @@ export function AuthenticatedRoute({
     pushRedirect,
     ...props
 }: AuthenticatedRouteProps) {
-    const user = useAuth().currentUser;
+    const user = useUser();
     return <Route {...props}>{
         user ? (children || component) : <Redirect to={redirectTo} push={pushRedirect} />
     }</Route>;

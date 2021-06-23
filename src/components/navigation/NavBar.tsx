@@ -1,11 +1,13 @@
-import React, {CSSProperties, memo, useState} from "react";
+import React, {CSSProperties, memo, useEffect} from "react";
 import {Link, withRouter, RouteComponentProps} from "react-router-dom";
 import css from "./NavBar/NavBar.module.scss";
 import {classNames} from "../../utils/component-utils";
 import InnerGridIcon from "../icons/InnerGridIcon";
-import useAuth from "../../hooks/useAuth";
+import useUser from "../../hooks/useUser";
 import {errorMessage} from "../../utils/error-utils";
 import Badge from "../ui/Badge";
+import {useStoreDispatch, useStoreSelector} from "../../hooks/useStore";
+import {signOut} from "../../store/slices/user";
 
 export interface NavBarProps extends RouteComponentProps {
     className?: string;
@@ -20,21 +22,18 @@ const links = Object.freeze([
 ]);
 
 export function RawNavBar(props: NavBarProps) {
-    const auth = useAuth();
-    const user = auth.currentUser;
-    const [signingOut, setSigningOut] = useState(false);
+    const user = useUser();
+    const dispatch = useStoreDispatch();
+    const {signingOut, signInError} = useStoreSelector(state => state.user);
 
     const handleLogOut = () => {
-        setSigningOut(true);
-        auth.signOut().then(
-            () => props.history.push("/"),
-            error => {
-                alert(errorMessage(error));
-                setSigningOut(false);
-            }
-        );
+        dispatch(signOut());
     };
     const disabled = signingOut;
+
+    useEffect(() => {
+        if (signInError) alert(errorMessage(signInError));
+    }, [signInError]);
 
     return <nav className={classNames(css.root)} style={props.style}>
 

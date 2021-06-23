@@ -1,33 +1,29 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import {RouteChildrenProps} from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 import css from "./LogInScreen/LogInScreen.module.scss";
 import ScienceBackground, {defaultScienceBackgroundStyle} from "../components/decoration/ScienceBackground";
 import LogInForm, {LogInFormProps} from "./LogInScreen/LogInForm";
 
 import {useStoreDispatch, useStoreSelector} from "../hooks/useStore";
-import {setUser} from "../store/user";
+import {signIn} from "../store/slices/user";
 
 export interface LogInScreenProps extends RouteChildrenProps {}
 
 export function LogInScreen(props: LogInScreenProps) {
-    const auth = useAuth();
     const dispatch = useStoreDispatch();
+    const state = useStoreSelector(state => state.user);
 
-    const [processing, setProcessing] = useState(false);
-    const [error, setError] = useState<Error|null>(null);
+    const signedIn = !!state.current;
+    const processing = state.signingIn;
+    const error = state.signInError;
 
     const handleSubmit: LogInFormProps['onSubmit'] = async (email, password) => {
-        try {
-            setError(null);
-            setProcessing(true);
-            const user = await auth.signIn(email, password);
-            dispatch(setUser(user));
-        } catch(e) {
-            setError(e);
-            setProcessing(false);
-        }
+        dispatch(signIn({email, password}));
     }
+
+    useEffect(() => {
+        if (signedIn) props.history.push("/");
+    }, [signedIn, props.history]);
 
     return <div className={css.root}>
         <div className={css.formContainer}>

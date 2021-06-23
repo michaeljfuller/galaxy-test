@@ -14,8 +14,8 @@ export interface LogInFormProps {
 
 export function LogInForm(props: LogInFormProps) {
     const {disabled} = props;
-    const [email, setEmail] = useState("test@user");
-    const [password, setPassword] = useState("something");
+    const [email, setEmail] = useState("test@redacted.tech");
+    const [password, setPassword] = useState("testPassword123");
 
     const handleSubmit: FormHTMLAttributes<HTMLFormElement>['onSubmit'] = async (event) => {
         event.preventDefault();

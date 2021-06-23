@@ -1,14 +1,12 @@
 import MockVolatileAuth from "../services/auth/MockVolatileAuth";
+// import Auth0Api from "../services/auth/Auth0Api";
 // import MockNotificationsApi from "../services/notifications/MockNotificationsApi";
 import NotificationsApi from "../services/notifications/NotificationsApi";
 
-const mockAuth = new MockVolatileAuth({});
-// const mockNotifications = new MockNotificationsApi({ fetchNotificationsDelay: 1000 });
-const notifications = new NotificationsApi({});
-
 export const sagaContexts = {
-    auth: mockAuth,
-    notifications: notifications,
+    // auth: window.location.origin === "http://localhost:8080" ? new Auth0Api({}) : new MockVolatileAuth({}), // TODO Re-enable if/when Auth0 is working
+    auth: new MockVolatileAuth({}),
+    notifications: new NotificationsApi({}),
 };
 export default sagaContexts;
 

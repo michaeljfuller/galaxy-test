@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/galaxy-test/static/css/main.8a15d1af.chunk.css",
-    "main.js": "/galaxy-test/static/js/main.ab83fba9.chunk.js",
-    "main.js.map": "/galaxy-test/static/js/main.ab83fba9.chunk.js.map",
+    "main.js": "/galaxy-test/static/js/main.9adbcf85.chunk.js",
+    "main.js.map": "/galaxy-test/static/js/main.9adbcf85.chunk.js.map",
     "runtime-main.js": "/galaxy-test/static/js/runtime-main.03fd0638.js",
     "runtime-main.js.map": "/galaxy-test/static/js/runtime-main.03fd0638.js.map",
-    "static/js/2.3e403e49.chunk.js": "/galaxy-test/static/js/2.3e403e49.chunk.js",
-    "static/js/2.3e403e49.chunk.js.map": "/galaxy-test/static/js/2.3e403e49.chunk.js.map",
+    "static/js/2.a313c4e0.chunk.js": "/galaxy-test/static/js/2.a313c4e0.chunk.js",
+    "static/js/2.a313c4e0.chunk.js.map": "/galaxy-test/static/js/2.a313c4e0.chunk.js.map",
     "static/js/3.853841ca.chunk.js": "/galaxy-test/static/js/3.853841ca.chunk.js",
     "static/js/3.853841ca.chunk.js.map": "/galaxy-test/static/js/3.853841ca.chunk.js.map",
     "index.html": "/galaxy-test/index.html",
     "static/css/main.8a15d1af.chunk.css.map": "/galaxy-test/static/css/main.8a15d1af.chunk.css.map",
-    "static/js/2.3e403e49.chunk.js.LICENSE.txt": "/galaxy-test/static/js/2.3e403e49.chunk.js.LICENSE.txt",
+    "static/js/2.a313c4e0.chunk.js.LICENSE.txt": "/galaxy-test/static/js/2.a313c4e0.chunk.js.LICENSE.txt",
     "static/media/index.css": "/galaxy-test/static/media/Inter-SemiBold.c6588ec1.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.03fd0638.js",
-    "static/js/2.3e403e49.chunk.js",
+    "static/js/2.a313c4e0.chunk.js",
     "static/css/main.8a15d1af.chunk.css",
-    "static/js/main.ab83fba9.chunk.js"
+    "static/js/main.9adbcf85.chunk.js"
   ]
 }

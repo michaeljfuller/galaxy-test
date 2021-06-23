@@ -9,10 +9,12 @@ export type PopUnderProps = PropsWithChildren<{
     style?: CSSProperties;
     containerClassName?: string;
     containerStyle?: CSSProperties;
+    onClose: () => void;
 }>;
 
 export default function PopUnder(props: PopUnderProps) {
     return <div className={classNames(css.root, props.containerClassName)} style={props.containerStyle}>
+        {props.open ? <div className={css.background} onClick={props.onClose} /> : null}
         {props.children}
         {props.open ? <div className={classNames(css.popUnder, props.className)} style={props.style}>
             {React.createElement(props.content)}

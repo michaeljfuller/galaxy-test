@@ -31,7 +31,7 @@ export function RawNavBar(props: NavBarProps) {
     const {signingOut, signInError} = useStoreSelector(state => state.user);
 
     const [openNotifications, setOpenNotifications] = useState(false);
-    const handleOpenNotifications = () => setOpenNotifications(!openNotifications);
+    const handleToggleNotifications = () => setOpenNotifications(!openNotifications);
 
     const handleLogOut = () => dispatch(signOut());
     const disabled = signingOut;
@@ -56,11 +56,16 @@ export function RawNavBar(props: NavBarProps) {
         </div>
 
         <div className={css.actions}>
-            <Badge value={notifications.latest.length} hidden={notifications.fetchingLatest}>
-                <PopUnder open={openNotifications} content={LatestNotificationsList} className={css.popUnder}>
-                    <div className={css.notifications} onClick={handleOpenNotifications}>Bell</div>
-                </PopUnder>
-            </Badge>
+            <PopUnder
+                open={openNotifications}
+                onClose={handleToggleNotifications}
+                content={LatestNotificationsList}
+                className={css.popUnder}
+            >
+                <Badge value={notifications.latest.length} hidden={notifications.fetchingLatest}>
+                        <div className={css.notifications} onClick={handleToggleNotifications}>Bell</div>
+                </Badge>
+            </PopUnder>
             <img className={css.avatar} src={user?.avatar} alt="avatar" />
             <button onClick={handleLogOut} disabled={disabled}>Log out</button>
         </div>

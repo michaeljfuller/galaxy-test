@@ -1,0 +1,12 @@
+@mixin Inter {
+  font-family: 'Inter', Roboto, sans-serif;
+  font-weight: normal;
+}
+@mixin Inter-SemiBold {
+  font-family: 'Inter-SemiBold', Roboto, sans-serif;
+  //font-weight: 600;
+}
+@mixin Inter-Bold {
+  font-family: 'Inter-Bold', Roboto, sans-serif;
+  //font-weight: bold;
+}

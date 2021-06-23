@@ -1,35 +1,35 @@
 @use 'color';
+@use 'font';
 
 @mixin text {
-  /* TODO font-family: Inter; */
+  @include font.Inter;
   line-height: 1;
   letter-spacing: 0.01em;
-  font-weight: normal;
   color: color.$grey-dark;
 }
 
 @mixin heading-1 {
   @include text;
+  @include font.Inter-Bold;
   font-size: 48pt;
-  font-weight: bold;
 }
 
 @mixin heading-2 {
   @include text;
+  @include font.Inter-Bold;
   font-size: 24pt;
-  font-weight: bold;
 }
 
 @mixin sub-heading {
   @include text;
+  @include font.Inter-SemiBold;
   font-size: 16pt;
-  font-weight: 600;
 }
 
 @mixin button-heading {
   @include text;
+  @include font.Inter-SemiBold;
   font-size: 14pt;
-  font-weight: 600;
 }
 
 @mixin paragraph {

@@ -3,7 +3,9 @@ import MockNotificationsApi from "../services/notifications/MockNotificationsApi
 
 export const sagaContexts = {
     auth: new MockVolatileAuth({}),
-    notifications: new MockNotificationsApi({}),
+    notifications: new MockNotificationsApi({
+        fetchNotificationsDelay: 1000,
+    }),
 };
 export default sagaContexts;
 

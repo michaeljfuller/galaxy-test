@@ -8,6 +8,7 @@ import {errorMessage} from "../../utils/error-utils";
 import Badge from "../ui/Badge";
 import {useStoreDispatch, useStoreSelector} from "../../hooks/useStore";
 import {signOut} from "../../store/user/user-slice";
+import useNotifications from "../../hooks/useNotifications";
 
 export interface NavBarProps extends RouteComponentProps {
     className?: string;
@@ -23,6 +24,7 @@ const links = Object.freeze([
 
 export function RawNavBar(props: NavBarProps) {
     const user = useUser();
+    const notifications = useNotifications();
     const dispatch = useStoreDispatch();
     const {signingOut, signInError} = useStoreSelector(state => state.user);
 
@@ -51,7 +53,7 @@ export function RawNavBar(props: NavBarProps) {
         </div>
 
         <div className={css.actions}>
-            <Badge value={3}>
+            <Badge value={notifications.latest.length} hidden={notifications.fetchingLatest}>
                 <div className={css.notifications}>Bell</div>
             </Badge>
             <img className={css.avatar} src={user?.avatar} alt="avatar" />

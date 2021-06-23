@@ -22,6 +22,8 @@ export default class MockNotificationsApi implements NotificationsService {
             createNotification("1"),
             createNotification("12"),
             createNotification("123"),
+            createNotification("1234"),
+            createNotification("12345"),
         ];
     }
 

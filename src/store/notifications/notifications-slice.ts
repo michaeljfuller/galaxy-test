@@ -10,7 +10,7 @@ const initialState: NotificationsState = {
     fetchingLatest: false,
 };
 
-export const notificationsSlice = createSlice({
+export default createSlice({
     name: 'notifications',
     initialState,
 
@@ -34,9 +34,3 @@ export const notificationsSlice = createSlice({
     },
 
 });
-
-// Action creators are generated for each case reducer function
-export const {
-    fetchLatest, fetchLatestError, setLatest,
-} = notificationsSlice.actions;
-export default notificationsSlice.reducer;

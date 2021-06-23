@@ -7,7 +7,7 @@ import useUser from "../../hooks/useUser";
 import {errorMessage} from "../../utils/error-utils";
 import Badge from "../ui/Badge";
 import {useStoreDispatch, useStoreSelector} from "../../hooks/useStore";
-import {signOut} from "../../store/user/user-slice";
+import {signOut} from "../../store/user/user-actions";
 import useNotifications from "../../hooks/useNotifications";
 
 export interface NavBarProps extends RouteComponentProps {

@@ -4,15 +4,15 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from "./sagas";
 import sagaContexts from "./sagaContexts";
 
-import userReducer from './user/user-slice';
-import notificationsReducer from './notifications/notifications-slice';
+import user from './user/user-slice';
+import notifications from './notifications/notifications-slice';
 
 const sagaMiddleware = createSagaMiddleware({ context: sagaContexts });
 
 export const index = configureStore({
     reducer: {
-        user: userReducer,
-        notifications: notificationsReducer,
+        user: user.reducer,
+        notifications: notifications.reducer,
     },
     middleware: [
         ...getDefaultMiddleware(),

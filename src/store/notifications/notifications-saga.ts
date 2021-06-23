@@ -1,6 +1,6 @@
 import {call, put, takeLatest, getContext} from 'redux-saga/effects';
 
-import {fetchLatest, fetchLatestError, setLatest} from "./notifications-slice";
+import {fetchLatest, fetchLatestError, setLatest} from "./notifications-actions";
 import type {SagaContext} from "../sagaContexts";
 
 function* fetchLatestWorker() {

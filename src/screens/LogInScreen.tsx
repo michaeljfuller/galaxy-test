@@ -5,7 +5,7 @@ import ScienceBackground, {defaultScienceBackgroundStyle} from "../components/de
 import LogInForm, {LogInFormProps} from "./LogInScreen/LogInForm";
 
 import {useStoreDispatch, useStoreSelector} from "../hooks/useStore";
-import {signIn} from "../store/user/user-slice";
+import {signIn} from "../store/user/user-actions";
 
 export interface LogInScreenProps extends RouteChildrenProps {}
 

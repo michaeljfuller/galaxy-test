@@ -19,7 +19,7 @@ export interface SignInPayload {
     password: string;
 }
 
-export const userSlice = createSlice({
+export default createSlice({
     name: 'user',
     initialState,
 
@@ -55,11 +55,3 @@ export const userSlice = createSlice({
     },
 
 });
-
-// Action creators are generated for each case reducer function
-export const {
-    signIn, signInError,
-    signOut, signOutError,
-    setUser
-} = userSlice.actions;
-export default userSlice.reducer;

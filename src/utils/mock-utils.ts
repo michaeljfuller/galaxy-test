@@ -15,21 +15,25 @@ export function createUser(email: string): User {
     };
 }
 
+let articleCount = 0;
 export function createArticle(id: number): Article {
+    const count = articleCount++;
     return {
         id,
-        published: (new Date()).toISOString(),
+        published: new Date(2020, 0, 1, 0, 0, 0, count).toISOString(),
         title: `Article ${id}`,
         snippet: `Snippet of article ${id}`,
     };
 }
 
+let notificationCount = 0;
 export function createNotification(id: string): UserNotification {
+    const count = notificationCount++;
     return {
         id,
         title: `Notification ${id}`,
         message: `Message for notification ${id}`,
-        timeStamp: new Date().toISOString(),
-        read: id.length % 2 === 0
+        timeStamp: new Date(2020, 0, 1, 0, 0, 0, count).toISOString(),
+        read: count % 2 === 0
     };
 }

@@ -1,5 +1,6 @@
 # Galaxy Test
 This is a demo project for the Galactic app.  
+Where possible while still meeting the brief, references to the company have been omitted.  
 You can see the app in action [here](https://michaeljfuller.github.io/galaxy-test), using a mock auth service that lets you log in with any valid credentials.
 
 ## Files Walk-through
@@ -20,8 +21,7 @@ Defines most of the base styles, by including SCSS mixins.
 Components that represent a discrete webpage, or app screen, attached to a route.
 
 ## `/src/services`
-Following SOLID design principles, the services are defined as an interface so there can be interchangable implementations.  
-For example, there can be a mock implementation, and a production implementation.
+Following SOLID design principles, the services are defined as an interface so there can be interchangable implementations. For example, there can be mock & production implementations.
 
 * `AuthService`  
 The interface defining what an AuthService should look like.
@@ -45,18 +45,26 @@ A real NotificationsService, connecting to the specified endpoint.
   
 ## `/src/store`
 Contains the Redux Store and Sagas.
-* `index` Configures the store.
-* `sagas` Defines the rootSaga for the store.
+
+* `index`  
+Configures the store.
+
+* `sagas`  
+Defines the rootSaga for the store.
+
 * `sagaContexts`  
 Enables Dependency Inversion of services, allowing us to specify which implementation of a service is used, and pass options to its constructor.
 Sagas can then use **getContext()** to get the passed service.
 
 ## `/src/store/*`
 Modules defining & governing a particular store.
+
 * `*-slice`  
-  A Redux Toolkit slice, defining the actions and reducers.
+A Redux Toolkit slice, defining the actions and reducers.
+
 * `*-actions`  
-  A clean and descriptive module with just actions to be used.
+A clean and descriptive module with just actions to be used.
+
 * `*-saga`  
 The Redux-Saga for this store.  
 Uses the relevant service to do async updates to the store.
@@ -66,7 +74,7 @@ Uses the relevant service to do async updates to the store.
 The sidebar navigator that can be seen on the Profile page.  
 Has its own routing, so the URL gets updated as you change section.  
   
-* `AuthenticatedRoute`
+* `AuthenticatedRoute`  
 A wrapper for a **react-router Route** that redirects you if you're not logged in.
   
 ## `/src/hooks`
